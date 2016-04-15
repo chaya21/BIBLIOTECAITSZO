@@ -1,0 +1,55 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package media;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author MIRANDA
+ */
+public class Media {
+static double numero;
+static double media;
+static double varianza;
+static double desv_estan;
+static int n;
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Cual es la cantidad de numeros para calcular");
+        n = sc.nextInt();
+        // arreglo para almacenar los valores
+        double numeros [] = new double [n];
+        for(int i = 0; i<n;i++){
+         System.out.println("ingrese el numero: ");
+         numeros[i] = sc.nextDouble();
+      }
+        double suma = 0;
+        for (double i: numeros){
+            suma = suma + i;
+        }
+        media = suma / n;
+        System.out.println("la media es: " + media);
+        
+        //varianza
+        double sumatoria;
+        for (int i= 0; i < 0;i++){
+        sumatoria = Math.pow(numeros[i] - media,2);
+        varianza = varianza + sumatoria;          
+    }
+        varianza = varianza / (n-1);
+        
+        // desviacion estandar
+        desv_estan = Math.sqrt(varianza);
+        double redondeo = Math.rint(desv_estan*100)/100;
+        System.out.println("la desviacion estandar es: " + redondeo);
+    }
+    
+}
